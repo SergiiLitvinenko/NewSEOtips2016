@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvToolsListName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="23sp"
+        android:layout_centerHorizontal="true"/>
+
+    <ScrollView
+        android:id="@+id/svTools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvAdviceName">
+
+        <TextView
+            android:id="@+id/tvToolsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"/>
+
+    </ScrollView>
+
+</RelativeLayout>
