@@ -117,7 +117,8 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Setting options menu click result. Note: add advice and share have different types.
+     * Setting options menu click result. Note: add advice and share advice have
+     * different .setType attributes.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -143,6 +144,20 @@ public class AdviceActivity extends AppCompatActivity {
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT,
                         filteredAdvicesList[currentPosition].getContent());
                 startActivity(Intent.createChooser(sharingIntent, getString(R.string.share_advice)));
+                break;
+
+            case R.id.miReport:
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.alert_dialog_dev_email)});
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.alert_dialog_report_subject) +
+                        filteredAdvicesList[currentPosition].getName());
+                intent.putExtra(Intent.EXTRA_TEXT, "");
+                try {
+                    startActivity(Intent.createChooser(intent, getString(R.string.alert_dialog_add_advice)));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(AdviceActivity.this, R.string.alert_dialog_no_email_client, Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.miInfo:

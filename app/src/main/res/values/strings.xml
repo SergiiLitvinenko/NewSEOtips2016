@@ -22,4 +22,6 @@
     <string name="info_optim_content">Всё что делается в пределах сайта для улучшения его ранжирования относится к внутренней оптимизации. Как правило это улучшение качества контента и юзабилити</string>
     <string name="info_tools_title">Бесплатные инструменты</string>
     <string name="info_tools_content">Тут собраны самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
+    <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
+    <string name="menu_item_report">Сообщить об ошибке</string>
 </resources>

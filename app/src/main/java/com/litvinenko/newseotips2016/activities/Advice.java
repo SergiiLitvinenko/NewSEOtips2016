@@ -71,4 +71,3 @@ public class Advice extends Activity implements Parcelable {
         }
     };
 }
-
