@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
     /**
-     * Setting up results for main menu buttons clicks. We are opening a menu fragment and sending
+     * Setting up results for main menu buttons clicks. Opening menu fragment and sending
      * there type of advices we need via Bundle
      */
     @Override
