@@ -153,7 +153,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
     public void doPositiveClick() {
-        // Do stuff here.
         Log.i("FragmentAlertDialog", "Positive click!");
     }
 }
