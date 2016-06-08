@@ -3,7 +3,6 @@ package com.litvinenko.newseotips2016.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -95,47 +94,17 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
      */
     @Override
     public void onMainSeoInfoClick() {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle(getString(R.string.info_seo_title));
-        alertDialog.setMessage(getString(R.string.info_seo_content));
-        alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+        showInfoDialog(R.string.info_seo_title, R.string.info_seo_content);
     }
 
     @Override
     public void onMainOptimInfoClick() {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle(getString(R.string.info_optim_title));
-        alertDialog.setMessage(getString(R.string.info_optim_content));
-        alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+        showInfoDialog(R.string.info_optim_title, R.string.info_optim_content);
     }
 
     @Override
     public void onMainToolsInfoClick() {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle(getString(R.string.info_tools_title));
-        alertDialog.setMessage(getString(R.string.info_tools_content));
-        alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+        showInfoDialog(R.string.info_tools_title, R.string.info_tools_content);
     }
 
 
@@ -173,26 +142,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
                 break;
 
             case R.id.miInfo:
-                showDialog();
-//                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-//                alertDialog.setTitle(getString(R.string.alert_dialog_info_title));
-//                alertDialog.setMessage(getString(R.string.alert_dialog_info_content));
-//                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-//                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-//                        new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        });
-//                alertDialog.show();
+                showInfoDialog(R.string.alert_dialog_info_title, R.string.alert_dialog_info_content);
         }
         return true;
     }
 
-    void showDialog() {
-
-        InfoDialogFragment newFragment = InfoDialogFragment.newInstance(R.string.alert_dialog_info_title,
-                R.string.alert_dialog_info_content);
+    void showInfoDialog(int title, int content) {
+        InfoDialogFragment newFragment = InfoDialogFragment.newInstance(title, content);
         newFragment.show(getSupportFragmentManager(), "dialog");
     }
 
