@@ -3,8 +3,10 @@ package com.litvinenko.newseotips2016.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.litvinenko.newseotips2016.R;
+import com.litvinenko.newseotips2016.fragments.InfoDialogFragment;
 import com.litvinenko.newseotips2016.fragments.MainFragment;
 import com.litvinenko.newseotips2016.fragments.MenuFragment;
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
     /**
-     * Creating Options Menu
+     * Create Options Menu
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
     /**
-     * Setting up results for main menu buttons clicks. Opening menu fragment and sending
+     * Set results for main menu buttons clicks. Open menu fragment and send
      * there type of advices we need via Bundle
      */
     @Override
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
     /**
-     * Setting up results for main menu info buttons clicks. All dialogs are dynamically generated
+     * Set results for main menu info buttons clicks. All dialogs are dynamically generated
      */
     @Override
     public void onMainSeoInfoClick() {
@@ -137,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
 
 
     /**
-     * Setting up results for advices menu click. We are open Advice activity and send there
+     * Set results for advices menu click. We are open Advice activity and send there
      * type and position of advice that was clicked because it is needed for proper work of
      * View Pager
      */
@@ -151,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
 
 
     /**
-     * Setting options menu click result. Note: add advice and share have different types.
+     * Set options menu click result. Note: add advice and share have different types.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -170,18 +173,31 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
                 break;
 
             case R.id.miInfo:
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog.setTitle(getString(R.string.alert_dialog_info_title));
-                alertDialog.setMessage(getString(R.string.alert_dialog_info_content));
-                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
+                showDialog();
+//                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+//                alertDialog.setTitle(getString(R.string.alert_dialog_info_title));
+//                alertDialog.setMessage(getString(R.string.alert_dialog_info_content));
+//                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
+//                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        });
+//                alertDialog.show();
         }
         return true;
+    }
+
+    void showDialog() {
+
+        InfoDialogFragment newFragment = InfoDialogFragment.newInstance(R.string.alert_dialog_info_title,
+                R.string.alert_dialog_info_content);
+        newFragment.show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void doPositiveClick() {
+        // Do stuff here.
+        Log.i("FragmentAlertDialog", "Positive click!");
     }
 }
