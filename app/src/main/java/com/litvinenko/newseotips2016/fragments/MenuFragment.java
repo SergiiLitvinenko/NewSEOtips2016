@@ -107,7 +107,7 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
     }
 
     /**
-     * Adding advices to filtered list
+     * Add advice to filtered list
      */
     private void addAdvices() {
         if (filteredList.size() == 0) {

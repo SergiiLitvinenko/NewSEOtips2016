@@ -42,7 +42,7 @@ public class AdviceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advice);
 
         /**
-         * Showing up icon in Action Bar
+         * Show up icon in Action Bar
          */
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
@@ -50,7 +50,7 @@ public class AdviceActivity extends AppCompatActivity {
         pager = (ViewPager) findViewById(R.id.vp_ViewPager);
 
         /**
-         * Getting position of advice clicked and its type
+         * Get position of advice clicked and its type
          */
         Bundle bundle = getIntent().getExtras();
         currentPosition = bundle.getInt("Position");
@@ -61,7 +61,7 @@ public class AdviceActivity extends AppCompatActivity {
         addAdvices();
 
         /**
-         * Setting Pager Adapter and launching View Pager. Setting current item
+         * Set Pager Adapter and launching View Pager. Setting current item
          */
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
@@ -85,7 +85,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Creating Options Menu
+     * Create Options Menu
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,7 +95,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Filling View Pager with our advices of specific type
+     * Fill View Pager with our advices of specific type
      */
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -117,7 +117,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Setting options menu click result. Note: add advice and share advice have
+     * Set options menu click result. Note: add advice and share advice have
      * different .setType attributes.
      */
     @Override
@@ -177,7 +177,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Initializing and getting data from Database
+     * Initialize and get data from Database
      */
     private void initDataBase() {
         dbHelper = new MyDatabaseAssetHelper(this);
@@ -203,7 +203,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Adding advices to filtered list according to selected type
+     * Add advices to filtered list according to selected type
      */
     private void addAdvices() {
         if (advicesList.size() == 0) {
