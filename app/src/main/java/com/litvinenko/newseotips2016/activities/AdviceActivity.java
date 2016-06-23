@@ -1,5 +1,6 @@
 package com.litvinenko.newseotips2016.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -42,7 +43,7 @@ public class AdviceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advice);
 
         /**
-         * Show up icon in Action Bar
+         * Showing up icon in Action Bar
          */
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
@@ -50,7 +51,7 @@ public class AdviceActivity extends AppCompatActivity {
         pager = (ViewPager) findViewById(R.id.vp_ViewPager);
 
         /**
-         * Get position of advice clicked and its type
+         * Getting position of advice clicked and its type
          */
         Bundle bundle = getIntent().getExtras();
         currentPosition = bundle.getInt("Position");
@@ -61,7 +62,7 @@ public class AdviceActivity extends AppCompatActivity {
         addAdvices();
 
         /**
-         * Set Pager Adapter and launching View Pager. Setting current item
+         * Setting Pager Adapter and launching View Pager. Setting current item
          */
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
@@ -82,6 +83,12 @@ public class AdviceActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+    }
+
+
+
+    static String getTitle(Context ctxt, int position) {
+        return "Совет № " + String.valueOf(position + 1);
     }
 
     /**
@@ -203,7 +210,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Add advices to filtered list according to selected type
+     * Add advice to filtered list according to selected type
      */
     private void addAdvices() {
         if (advicesList.size() == 0) {
