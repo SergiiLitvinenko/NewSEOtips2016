@@ -1,5 +1,6 @@
 package com.litvinenko.newseotips2016.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -84,8 +85,14 @@ public class AdviceActivity extends AppCompatActivity {
         });
     }
 
+
+
+    static String getTitle(Context ctxt, int position) {
+        return "Совет № " + String.valueOf(position + 1);
+    }
+
     /**
-     * Creating Options Menu
+     * Create Options Menu
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,7 +102,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Filling View Pager with our advices of specific type
+     * Fill View Pager with our advices of specific type
      */
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -117,7 +124,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Setting options menu click result. Note: add advice and share advice have
+     * Set options menu click result. Note: add advice and share advice have
      * different .setType attributes.
      */
     @Override
@@ -177,7 +184,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Initializing and getting data from Database
+     * Initialize and get data from Database
      */
     private void initDataBase() {
         dbHelper = new MyDatabaseAssetHelper(this);
@@ -203,7 +210,7 @@ public class AdviceActivity extends AppCompatActivity {
     }
 
     /**
-     * Adding advices to filtered list according to selected type
+     * Add advice to filtered list according to selected type
      */
     private void addAdvices() {
         if (advicesList.size() == 0) {
