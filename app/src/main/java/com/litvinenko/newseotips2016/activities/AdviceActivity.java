@@ -43,7 +43,7 @@ public class AdviceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advice);
 
         /**
-         * Showing up icon in Action Bar
+         * Show up icon in Action Bar
          */
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
@@ -51,7 +51,7 @@ public class AdviceActivity extends AppCompatActivity {
         pager = (ViewPager) findViewById(R.id.vp_ViewPager);
 
         /**
-         * Getting position of advice clicked and its type
+         * Get position of advice clicked and its type
          */
         Bundle bundle = getIntent().getExtras();
         currentPosition = bundle.getInt("Position");
@@ -62,9 +62,9 @@ public class AdviceActivity extends AppCompatActivity {
         addAdvices();
 
         /**
-         * Setting Pager Adapter and launching View Pager. Setting current item
+         * Set Pager Adapter and launching View Pager. Setting current item
          */
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new com.litvinenko.newseotips2016.activities.MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(currentPosition);
 
@@ -84,8 +84,6 @@ public class AdviceActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     static String getTitle(Context ctxt, int position) {
         return "Совет № " + String.valueOf(position + 1);
