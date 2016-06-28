@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -64,7 +65,7 @@ public class AdviceActivity extends AppCompatActivity {
         /**
          * Set Pager Adapter and launching View Pager. Setting current item
          */
-        pagerAdapter = new com.litvinenko.newseotips2016.activities.MyFragmentPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(currentPosition);
 
@@ -102,10 +103,15 @@ public class AdviceActivity extends AppCompatActivity {
     /**
      * Fill View Pager with our advices of specific type
      */
-    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+    private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         public MyFragmentPagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "Совет " + (position + 1);
         }
 
         @Override
