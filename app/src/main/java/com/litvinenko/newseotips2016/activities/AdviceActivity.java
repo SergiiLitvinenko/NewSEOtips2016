@@ -1,12 +1,10 @@
 package com.litvinenko.newseotips2016.activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -84,10 +82,6 @@ public class AdviceActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-    }
-
-    static String getTitle(Context ctxt, int position) {
-        return "Совет № " + String.valueOf(position + 1);
     }
 
     /**
@@ -219,11 +213,8 @@ public class AdviceActivity extends AppCompatActivity {
     private void addAdvices() {
         if (advicesList.size() == 0) {
             for (int i = 0; i < advicesDataList.size(); i++) {
-                Log.d("MenuFragment 2", "Переданный тип " + String.valueOf(type));
-                Log.d("MenuFragment 2", "Тип в базе " + String.valueOf(advicesDataList.get(i).getCategory()));
                 if(advicesDataList.get(i).getCategory() == type) {
                     advicesList.add(advicesDataList.get(i));
-                    Log.d("MenuFragment 2", advicesDataList.get(i).getName());
                 }
                 filteredAdvicesList = advicesList.toArray(new Advice[advicesList.size()]);
             }

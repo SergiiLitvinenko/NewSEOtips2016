@@ -113,7 +113,7 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
         if (filteredList.size() == 0) {
             for (int i = 0; i < advicesDataList.size(); i++) {
                 if(advicesDataList.get(i).getCategory() == type) {
-                    filteredList.add((i + 1) + ". " + advicesDataList.get(i).getName());
+                    filteredList.add(advicesDataList.get(i).getName());
                 }
             }
         }
