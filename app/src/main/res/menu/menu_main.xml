@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/miAddAdvice"
-        android:icon="@android:drawable/sym_action_email"
+        android:icon="@android:drawable/ic_input_add"
         android:title="@string/menu_item_add_advice"
         com.litvinenko.megabook:showAsAction="ifRoom"/>
 

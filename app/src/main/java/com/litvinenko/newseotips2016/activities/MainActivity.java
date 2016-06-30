@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     private android.support.v4.app.Fragment fMenu;
     private android.support.v4.app.FragmentManager fragmentManager;
 
+//    public static final String APP_PREFERENCES_INFO
+//    public static final String APP_PREFERENCES_RANDOM_ADVICE
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
