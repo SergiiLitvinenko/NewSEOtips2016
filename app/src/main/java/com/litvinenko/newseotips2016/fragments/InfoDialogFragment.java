@@ -27,7 +27,6 @@ public class InfoDialogFragment extends DialogFragment {
         int message = getArguments().getInt("Message");
 
         return new AlertDialog.Builder(getActivity())
-
                 .setTitle(title)
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .setMessage(message)
