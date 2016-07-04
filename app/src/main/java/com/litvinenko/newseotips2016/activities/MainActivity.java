@@ -1,7 +1,9 @@
 package com.litvinenko.newseotips2016.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,13 +27,24 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     private android.support.v4.app.Fragment fMenu;
     private android.support.v4.app.FragmentManager fragmentManager;
 
-//    public static final String APP_PREFERENCES_INFO
-//    public static final String APP_PREFERENCES_RANDOM_ADVICE
+    public static final String APP_PREFERENCES = "mysettings";
+    public static final String APP_PREFERENCES_INFO = "SHOW_INFO";
+    private boolean infoStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        /**
+//         * Check settings for dialog status
+//         */
+//        SharedPreferences mySharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+//        if(mySharedPreferences.getBoolean(APP_PREFERENCES_INFO, infoStatus)) {
+//            nicknameText.setText(mSettings.getString(APP_PREFERENCES_NAME, ""));
+//        }
+
+
 
         flFragmentContainer = (FrameLayout)findViewById(R.id.flFragmentContainer);
 
@@ -63,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
             bundle.putInt("Type", 1);
             fMenu.setArguments(bundle);
             android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
             ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
             ft.addToBackStack(null);
             ft.commit();
@@ -75,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
             bundle.putInt("Type", 2);
             fMenu.setArguments(bundle);
             android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
             ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
             ft.addToBackStack(null);
             ft.commit();
@@ -112,8 +127,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
 
 
     /**
-     * Set results for advices menu click. We are open Advice activity and send there
-     * type and position of advice that was clicked because it is needed for proper work of
+     * Set results for advice menu click. Open Advice activity and send there
+     * type and position of advice that was clicked. It is needed for proper work of
      * View Pager
      */
     @Override
