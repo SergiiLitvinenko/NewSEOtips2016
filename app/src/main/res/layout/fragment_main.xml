@@ -89,40 +89,6 @@
             android:layout_marginTop="10dp">
         </Button>
 
-
-        <Button
-            android:id="@+id/btnMainSeoInfo"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:background="@drawable/btn_info"
-            android:layout_marginLeft="0dp"
-            android:layout_alignTop="@+id/btnMainSeo"
-            android:layout_toEndOf="@+id/btnMainSeo">
-        </Button>
-
-        <Button
-            android:id="@+id/btnMainOptimInfo"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:background="@drawable/btn_info"
-            android:layout_marginLeft="0dp"
-            android:layout_alignTop="@+id/btnMainOptim"
-            android:layout_toEndOf="@+id/btnMainOptim">
-        </Button>
-
-        <Button
-            android:id="@+id/btnMainToolsInfo"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:background="@drawable/btn_info"
-            android:layout_marginLeft="0dp"
-            android:layout_alignTop="@+id/btnMainTools"
-            android:layout_toEndOf="@+id/btnMainTools">
-        </Button>
-
 </RelativeLayout>
 
 </RelativeLayout>

@@ -10,8 +10,8 @@ import android.widget.Button;
 
 import com.litvinenko.newseotips2016.R;
 
-public class MainFragment extends android.support.v4.app.Fragment implements View.OnClickListener {
-    private Button btnSeo, btnOptim, btnTools, btnSeoInfo, btnOptimInfo, btnToolsInfo;
+public class MainFragment extends android.support.v4.app.Fragment implements View.OnClickListener, View.OnLongClickListener {
+    private Button btnSeo, btnOptim, btnTools;
 
     private IOnMainSeoClickListener seoListener;
 
@@ -23,16 +23,13 @@ public class MainFragment extends android.support.v4.app.Fragment implements Vie
         btnSeo = (Button) v.findViewById(R.id.btnMainSeo);
         btnOptim = (Button) v.findViewById(R.id.btnMainOptim);
         btnTools = (Button) v.findViewById(R.id.btnMainTools);
-        btnSeoInfo = (Button) v.findViewById(R.id.btnMainSeoInfo);
-        btnOptimInfo = (Button) v.findViewById(R.id.btnMainOptimInfo);
-        btnToolsInfo = (Button) v.findViewById(R.id.btnMainToolsInfo);
 
         btnSeo.setOnClickListener(this);
         btnOptim.setOnClickListener(this);
         btnTools.setOnClickListener(this);
-        btnSeoInfo.setOnClickListener(this);
-        btnOptimInfo.setOnClickListener(this);
-        btnToolsInfo.setOnClickListener(this);
+        btnSeo.setOnLongClickListener(this);
+        btnOptim.setOnLongClickListener(this);
+        btnTools.setOnLongClickListener(this);
 
         return v;
     }
@@ -58,18 +55,28 @@ public class MainFragment extends android.support.v4.app.Fragment implements Vie
                 seoListener.onMainToolsClick();
                 break;
 
-            case R.id.btnMainSeoInfo:
+        }
+
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnMainSeo:
                 seoListener.onMainSeoInfoClick();
                 break;
 
-            case R.id.btnMainOptimInfo:
+            case R.id.btnMainOptim:
                 seoListener.onMainOptimInfoClick();
                 break;
 
-            case R.id.btnMainToolsInfo:
+            case R.id.btnMainTools:
                 seoListener.onMainToolsInfoClick();
                 break;
         }
+
+        return true;
+
     }
 
     public interface IOnMainSeoClickListener {

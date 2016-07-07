@@ -21,7 +21,7 @@
         com.litvinenko.megabook:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/miInfo"
+        android:id="@+id/miAppInfo"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/menu_item_info"
         com.litvinenko.megabook:showAsAction="ifRoom"/>

@@ -3,14 +3,14 @@
     xmlns:com.litvinenko.megabook="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/miAddAdvice"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="@string/menu_item_add_advice"
-        com.litvinenko.megabook:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/miInfo"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/menu_item_info"
         com.litvinenko.megabook:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/miAppInfo"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/menu_item_info"
+        com.litvinenko.megabook:showAsAction="never"/>
 </menu>

@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         bundle.putInt("Type", 3);
         fMenu.setArguments(bundle);
         android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
         ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
         ft.addToBackStack(null);
         ft.commit();
@@ -160,7 +161,12 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
                 break;
 
             case R.id.miInfo:
+                showInfoDialog(R.string.alert_dialog_menu_info_title, R.string.alert_dialog_menu_info_content);
+                break;
+
+            case R.id.miAppInfo:
                 showInfoDialog(R.string.alert_dialog_info_title, R.string.alert_dialog_info_content);
+                break;
         }
         return true;
     }
@@ -172,10 +178,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
 
     public void doPositiveClick() {
         Log.i("FragmentAlertDialog", "Positive click!");
-    }
-
-    public void doNegativeClick() {
-        Log.i("FragmentAlertDialog", "Negative click!");
     }
 
 }
