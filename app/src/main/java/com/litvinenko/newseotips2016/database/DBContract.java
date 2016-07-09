@@ -3,7 +3,7 @@ package com.litvinenko.newseotips2016.database;
 public class DBContract {
 
     public static final class Tables {
-        public static final String SEO_ADVICES_TABLE = "advices";
+        public static final String SEO_ADVICES_TABLE = "advice";
     }
 
     public static final class SeoAdvicesTable {

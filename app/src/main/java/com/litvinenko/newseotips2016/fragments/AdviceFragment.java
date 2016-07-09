@@ -44,6 +44,8 @@ public class AdviceFragment extends Fragment {
      */
     private void setAdvice(Advice advice) {
         tvAdviceName.setText(advice.getName());
-        tvAdviceContent.setText(Html.fromHtml(advice.getContent()));
+        if(advice.getContent() != null)
+            tvAdviceContent.setText(Html.fromHtml(advice.getContent()));
+
     }
 }
