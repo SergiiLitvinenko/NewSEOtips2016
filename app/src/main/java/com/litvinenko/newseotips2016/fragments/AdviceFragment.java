@@ -1,5 +1,6 @@
 package com.litvinenko.newseotips2016.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.litvinenko.newseotips2016.R;
@@ -14,6 +16,7 @@ import com.litvinenko.newseotips2016.activities.Advice;
 
 public class AdviceFragment extends Fragment {
     TextView tvAdviceName, tvAdviceContent;
+    ImageView ivAdviceImage;
 
     public static AdviceFragment newInstance(Advice advice) {
         AdviceFragment fragmentAdvice = new AdviceFragment();
@@ -30,6 +33,7 @@ public class AdviceFragment extends Fragment {
 
         tvAdviceName = (TextView)v.findViewById(R.id.tvAdviceName);
         tvAdviceContent = (TextView)v.findViewById(R.id.tvAdvice);
+        ivAdviceImage = (ImageView)v.findViewById(R.id.ivAdviceImage);
 
         if (getArguments() != null) {
             Advice advice = getArguments().getParcelable("Advice");
@@ -39,6 +43,10 @@ public class AdviceFragment extends Fragment {
         return v;
     }
 
+    //Res name from SQL db - testing
+
+    String image = "googlepr";
+
     /**
      * Note that we have support of html tags in tvAdviceContent. It is needed for Tool advices
      */
@@ -46,6 +54,26 @@ public class AdviceFragment extends Fragment {
         tvAdviceName.setText(advice.getName());
         if(advice.getContent() != null)
             tvAdviceContent.setText(Html.fromHtml(advice.getContent()));
+        ivAdviceImage.setImageResource(getResourceID(image, "drawable", getContext()));
 
+    }
+
+    protected static int getResourceID
+            (final String resName, final String resType, final Context context)
+    {
+        final int ResourceID =
+                context.getResources().getIdentifier(resName, resType,
+                        context.getApplicationInfo().packageName);
+        if (ResourceID == 0)
+        {
+            throw new IllegalArgumentException
+                    (
+                            "No resource string found with name " + resName
+                    );
+        }
+        else
+        {
+            return ResourceID;
+        }
     }
 }

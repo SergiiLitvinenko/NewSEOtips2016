@@ -34,35 +34,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:layout_below="@+id/tvAdvice"
-                android:layout_above="@+id/ivAdviceImage"/>
+                android:textStyle="italic"
+                android:layout_below="@+id/tvAdvice"/>
 
             <ImageView
                 android:id="@+id/ivAdviceImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:padding="5dp"
+                android:layout_below="@+id/tvAdviceExample"
                 android:layout_alignParentBottom="true"/>
 
         </RelativeLayout>
 
     </ScrollView>
-
-    <!--<ScrollView-->
-        <!--android:id="@+id/svAdviceExample"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:paddingTop="20dp"-->
-        <!--android:layout_below="@id/tvAdviceName">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/tvAdviceExample"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="18sp"/>-->
-
-    <!--</ScrollView>-->
-    <!---->
-    <!---->
 
 </RelativeLayout>
