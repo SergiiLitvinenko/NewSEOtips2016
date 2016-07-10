@@ -8,8 +8,9 @@ public class Advice extends Activity implements Parcelable {
     private String Name, Content, Example, Image;
     private Integer Category, Number;
 
-    public Advice(Integer category, String name, String content) {
+    public Advice(Integer category, Integer number, String name, String content) {
         Name = name;
+        Number = number;
         Content = content;
         Category = category;
     }

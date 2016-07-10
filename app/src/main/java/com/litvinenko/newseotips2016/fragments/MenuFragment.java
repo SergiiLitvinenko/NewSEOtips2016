@@ -89,18 +89,22 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
     private void initData() {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String columns[] = new String[]{DBContract.SeoAdviceTable.NAME_COLUMN,
-                DBContract.SeoAdviceTable.CONTENT_COLUMN, DBContract.SeoAdviceTable.CATEGORY_COLUMN};
+        String columns[] = new String[]{DBContract.SeoAdviceTable.CATEGORY_COLUMN,
+                DBContract.SeoAdviceTable.NUMBER_COLUMN, DBContract.SeoAdviceTable.NAME_COLUMN,
+                DBContract.SeoAdviceTable.CONTENT_COLUMN};
         Cursor c = db.query(DBContract.Tables.SEO_ADVICE_TABLE, columns, null, null, null, null, null);
+        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CATEGORY_COLUMN);
+        int adviceNumberIndex = c.getColumnIndex(DBContract.SeoAdviceTable.NUMBER_COLUMN);
         int adviceNameIndex = c.getColumnIndex(DBContract.SeoAdviceTable.NAME_COLUMN);
         int adviceContentIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CONTENT_COLUMN);
-        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CATEGORY_COLUMN);
+
 
         while (c.moveToNext()) {
+            Integer adviceCategory = c.getInt(adviceCategoryIndex);
+            Integer adviceNumber = c.getInt(adviceNumberIndex);
             String adviceName = c.getString(adviceNameIndex);
             String adviceContent = c.getString(adviceContentIndex);
-            Integer adviceCategory = c.getInt(adviceCategoryIndex);
-            advicesDataList.add(new Advice(adviceCategory, adviceName, adviceContent));
+            advicesDataList.add(new Advice(adviceCategory, adviceNumber, adviceName, adviceContent));
         }
         db.close();
         for (int i = 0; i < advicesDataList.size(); i++);
@@ -113,7 +117,8 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
         if (filteredList.size() == 0) {
             for (int i = 0; i < advicesDataList.size(); i++) {
                 if(advicesDataList.get(i).getCategory() == type) {
-                    filteredList.add(advicesDataList.get(i).getName());
+                    filteredList.add(advicesDataList.get(i).getNumber() + ". " +
+                            advicesDataList.get(i).getName());
                 }
             }
         }
