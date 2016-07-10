@@ -89,12 +89,12 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
     private void initData() {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String columns[] = new String[]{DBContract.SeoAdvicesTable.NAME_COLUMN,
-                DBContract.SeoAdvicesTable.CONTENT_COLUMN, DBContract.SeoAdvicesTable.CATEGORY_COLUMN};
-        Cursor c = db.query(DBContract.Tables.SEO_ADVICES_TABLE, columns, null, null, null, null, null);
-        int adviceNameIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.NAME_COLUMN);
-        int adviceContentIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.CONTENT_COLUMN);
-        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.CATEGORY_COLUMN);
+        String columns[] = new String[]{DBContract.SeoAdviceTable.NAME_COLUMN,
+                DBContract.SeoAdviceTable.CONTENT_COLUMN, DBContract.SeoAdviceTable.CATEGORY_COLUMN};
+        Cursor c = db.query(DBContract.Tables.SEO_ADVICE_TABLE, columns, null, null, null, null, null);
+        int adviceNameIndex = c.getColumnIndex(DBContract.SeoAdviceTable.NAME_COLUMN);
+        int adviceContentIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CONTENT_COLUMN);
+        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CATEGORY_COLUMN);
 
         while (c.moveToNext()) {
             String adviceName = c.getString(adviceNameIndex);

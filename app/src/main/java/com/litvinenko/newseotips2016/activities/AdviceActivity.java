@@ -4,20 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.litvinenko.newseotips2016.R;
@@ -195,18 +190,27 @@ public class AdviceActivity extends AppCompatActivity {
     private void initData() {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String columns[] = new String[]{DBContract.SeoAdvicesTable.NAME_COLUMN,
-                DBContract.SeoAdvicesTable.CONTENT_COLUMN, DBContract.SeoAdvicesTable.CATEGORY_COLUMN};
-        Cursor c = db.query(DBContract.Tables.SEO_ADVICES_TABLE, columns, null, null, null, null, null);
-        int adviceNameIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.NAME_COLUMN);
-        int adviceContentIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.CONTENT_COLUMN);
-        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdvicesTable.CATEGORY_COLUMN);
+        String columns[] = new String[]{DBContract.SeoAdviceTable.CATEGORY_COLUMN,
+                DBContract.SeoAdviceTable.NUMBER_COLUMN, DBContract.SeoAdviceTable.NAME_COLUMN,
+                DBContract.SeoAdviceTable.CONTENT_COLUMN, DBContract.SeoAdviceTable.EXAMPLE_COLUMN,
+                DBContract.SeoAdviceTable.IMAGE_COLUMN};
+        Cursor c = db.query(DBContract.Tables.SEO_ADVICE_TABLE, columns, null, null, null, null, null);
+        int adviceCategoryIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CATEGORY_COLUMN);
+        int adviceNumberIndex = c.getColumnIndex(DBContract.SeoAdviceTable.NUMBER_COLUMN);
+        int adviceNameIndex = c.getColumnIndex(DBContract.SeoAdviceTable.NAME_COLUMN);
+        int adviceContentIndex = c.getColumnIndex(DBContract.SeoAdviceTable.CONTENT_COLUMN);
+        int adviceExampleIndex = c.getColumnIndex(DBContract.SeoAdviceTable.EXAMPLE_COLUMN);
+        int adviceImageIndex = c.getColumnIndex(DBContract.SeoAdviceTable.IMAGE_COLUMN);
 
         while (c.moveToNext()) {
+            Integer adviceCategory = c.getInt(adviceCategoryIndex);
+            Integer adviceNumber = c.getInt(adviceNumberIndex);
             String adviceName = c.getString(adviceNameIndex);
             String adviceContent = c.getString(adviceContentIndex);
-            Integer adviceCategory = c.getInt(adviceCategoryIndex);
-            advicesDataList.add(new Advice(adviceName, adviceContent, adviceCategory));
+            String adviceExample = c.getString(adviceExampleIndex);
+            String adviceImage = c.getString(adviceImageIndex);
+            advicesDataList.add(new Advice(adviceCategory, adviceNumber, adviceName, adviceContent,
+                    adviceExample, adviceImage));
         }
         db.close();
     }

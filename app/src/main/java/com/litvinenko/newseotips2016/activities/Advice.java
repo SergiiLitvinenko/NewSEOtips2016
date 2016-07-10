@@ -5,13 +5,38 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Advice extends Activity implements Parcelable {
-    private String Name, Content;
-    private Integer Category;
+    private String Name, Content, Example, Image;
+    private Integer Category, Number;
 
-    public Advice(String name, String content, Integer category) {
+    public Advice(Integer category, String name, String content) {
         Name = name;
         Content = content;
         Category = category;
+    }
+
+    public Advice(Integer category, Integer number, String name, String content, String example, String image) {
+        Category = category;
+        Number = number;
+        Name = name;
+        Content = content;
+        Example = example;
+        Image = image;
+    }
+
+    public Integer getCategory() {
+        return Category;
+    }
+
+    public void setCategory(Integer category) {
+        Category = category;
+    }
+
+    public Integer getNumber() {
+        return Number;
+    }
+
+    public void setNumber(Integer number) {
+        Number = number;
     }
 
     public String getName() {
@@ -30,13 +55,22 @@ public class Advice extends Activity implements Parcelable {
         Content = content;
     }
 
-    public Integer getCategory() {
-        return Category;
+    public String getExample() {
+        return Example;
     }
 
-    public void setCategory(Integer category) {
-        Category = category;
+    public void setExample(String example) {
+        Example = example;
     }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
 
     public Advice(Parcel in){
         String[] data = new String[3];
@@ -55,7 +89,8 @@ public class Advice extends Activity implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
-        dest.writeStringArray(new String[]{this.Name, this.Content, String.valueOf(this.Category)});
+        dest.writeStringArray(new String[]{String.valueOf(this.Category), String.valueOf(this.Number),
+                this.Name, this.Content, this.Example, this.Image});
     }
 
     public static final Parcelable.Creator<Advice> CREATOR= new Parcelable.Creator<Advice>() {

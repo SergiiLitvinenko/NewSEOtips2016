@@ -58,6 +58,10 @@ public class AdviceFragment extends Fragment {
 
     }
 
+    /**
+     * Get resourse ID for images
+     */
+
     protected static int getResourceID
             (final String resName, final String resType, final Context context)
     {
