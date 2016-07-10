@@ -100,7 +100,7 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
             String adviceName = c.getString(adviceNameIndex);
             String adviceContent = c.getString(adviceContentIndex);
             Integer adviceCategory = c.getInt(adviceCategoryIndex);
-            advicesDataList.add(new Advice(adviceName, adviceContent, adviceCategory));
+            advicesDataList.add(new Advice(adviceCategory, adviceName, adviceContent));
         }
         db.close();
         for (int i = 0; i < advicesDataList.size(); i++);

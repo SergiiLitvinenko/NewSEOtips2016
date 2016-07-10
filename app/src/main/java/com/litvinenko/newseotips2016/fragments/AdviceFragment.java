@@ -15,7 +15,7 @@ import com.litvinenko.newseotips2016.R;
 import com.litvinenko.newseotips2016.activities.Advice;
 
 public class AdviceFragment extends Fragment {
-    TextView tvAdviceName, tvAdviceContent;
+    TextView tvAdviceName, tvAdviceContent, tvAdviceExample;
     ImageView ivAdviceImage;
 
     public static AdviceFragment newInstance(Advice advice) {
@@ -33,6 +33,7 @@ public class AdviceFragment extends Fragment {
 
         tvAdviceName = (TextView)v.findViewById(R.id.tvAdviceName);
         tvAdviceContent = (TextView)v.findViewById(R.id.tvAdvice);
+        tvAdviceExample = (TextView)v.findViewById(R.id.tvAdviceExample);
         ivAdviceImage = (ImageView)v.findViewById(R.id.ivAdviceImage);
 
         if (getArguments() != null) {
@@ -43,25 +44,23 @@ public class AdviceFragment extends Fragment {
         return v;
     }
 
-    //Res name from SQL db - testing
-
-    String image = "googlepr";
-
     /**
-     * Note that we have support of html tags in tvAdviceContent. It is needed for Tool advices
+     * Set current advice. Note that we have support of html tags in some fields.
      */
     private void setAdvice(Advice advice) {
         tvAdviceName.setText(advice.getName());
         if(advice.getContent() != null)
             tvAdviceContent.setText(Html.fromHtml(advice.getContent()));
-        ivAdviceImage.setImageResource(getResourceID(image, "drawable", getContext()));
+        if(advice.getExample() != null)
+            tvAdviceExample.setText(Html.fromHtml(advice.getExample()));
+        if(advice.getImage() != null)
+        ivAdviceImage.setImageResource(getResourceID(advice.getImage(), "drawable", getContext()));
 
     }
 
     /**
      * Get resourse ID for images
      */
-
     protected static int getResourceID
             (final String resName, final String resType, final Context context)
     {
