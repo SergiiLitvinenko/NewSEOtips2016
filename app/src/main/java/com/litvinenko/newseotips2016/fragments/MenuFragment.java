@@ -111,7 +111,7 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
     }
 
     /**
-     * Add advice to filtered list
+     * Add advice to filtered list with numbers
      */
     private void addAdvices() {
         if (filteredList.size() == 0) {
