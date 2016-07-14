@@ -1,11 +1,7 @@
 package com.litvinenko.newseotips2016.activities;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         MenuFragment.IOnMenuClickListener {
     private FrameLayout flFragmentContainer;
 
+    int menuType;
+
     private android.support.v4.app.Fragment fMmain;
     private android.support.v4.app.Fragment fMenu;
     private android.support.v4.app.FragmentManager fragmentManager;
@@ -30,6 +28,17 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_INFO = "SHOW_INFO";
     private boolean infoStatus;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        if(fragmentManager.findFragmentByTag("MenuFragment") != null) {
+            outState.putBoolean("InMenu", true);
+            outState.putInt("SavedMenu", menuType);
+            super.onSaveInstanceState(outState);
+        }
+        else
+            super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +58,22 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         flFragmentContainer = (FrameLayout)findViewById(R.id.flFragmentContainer);
 
         fragmentManager = getSupportFragmentManager();
-        fMmain = new MainFragment();
-        android.support.v4.app.FragmentTransaction fTrans = fragmentManager.beginTransaction();
-        fTrans.replace(R.id.flFragmentContainer, fMmain, "MainFragment");
-        fTrans.commit();
+
+        if(savedInstanceState == null) {
+            fMmain = new MainFragment();
+            android.support.v4.app.FragmentTransaction fTrans = fragmentManager.beginTransaction();
+            fTrans.replace(R.id.flFragmentContainer, fMmain, "MainFragment");
+            fTrans.commit();
+        }
+        else {
+            fMenu = new MenuFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("Type", savedInstanceState.getInt("SavedMenu"));
+            fMenu.setArguments(bundle);
+            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+            ft.commit();
+        }
     }
 
     /**
@@ -71,35 +92,38 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
      */
     @Override
     public void onMainSeoClick() {
-            fMenu = new MenuFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("Type", 1);
-            fMenu.setArguments(bundle);
-            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-            ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-            ft.addToBackStack(null);
-            ft.commit();
+        fMenu = new MenuFragment();
+        Bundle bundle = new Bundle();
+        menuType = 1;
+        bundle.putInt("Type", menuType);
+        fMenu.setArguments(bundle);
+        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     @Override
     public void onMainOptimClick() {
-            fMenu = new MenuFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("Type", 2);
-            fMenu.setArguments(bundle);
-            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-            ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-            ft.addToBackStack(null);
-            ft.commit();
+        fMenu = new MenuFragment();
+        Bundle bundle = new Bundle();
+        menuType = 2;
+        bundle.putInt("Type", menuType);
+        fMenu.setArguments(bundle);
+        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     @Override
     public void onMainToolsClick() {
         fMenu = new MenuFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt("Type", 3);
+        menuType = 3;
+        bundle.putInt("Type", menuType);
         fMenu.setArguments(bundle);
         android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
