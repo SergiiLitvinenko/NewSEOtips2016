@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         }
         else {
             fMenu = new MenuFragment();
+            menuType = savedInstanceState.getInt("SavedMenu");
             Bundle bundle = new Bundle();
-            bundle.putInt("Type", savedInstanceState.getInt("SavedMenu"));
+            bundle.putInt("Type", menuType);
             fMenu.setArguments(bundle);
             android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
