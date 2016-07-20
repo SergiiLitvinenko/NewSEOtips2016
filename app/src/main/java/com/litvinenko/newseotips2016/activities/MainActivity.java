@@ -20,8 +20,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     private FrameLayout flFragmentContainer;
 
     int menuType;
+    boolean menuActive;
 
-    private android.support.v4.app.Fragment fMmain;
+    android.support.v4.app.FragmentTransaction fTrans;
+
+    private android.support.v4.app.Fragment fMain;
     private android.support.v4.app.Fragment fMenu;
     private android.support.v4.app.FragmentManager fragmentManager;
 
@@ -31,9 +34,10 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        if(fragmentManager.findFragmentByTag("MenuFragment") != null) {
-            outState.putBoolean("InMenu", true);
+        if(menuActive) {
+            Log.v("MyLOG", "menuActive");
             outState.putInt("SavedMenu", menuType);
+            outState.putBoolean("InMenu", menuActive);
             super.onSaveInstanceState(outState);
         }
         else
@@ -45,35 +49,40 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        /**
-//         * Check settings for dialog status
-//         */
-//        SharedPreferences mySharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-//        if(mySharedPreferences.getBoolean(APP_PREFERENCES_INFO, infoStatus)) {
-//            nicknameText.setText(mSettings.getString(APP_PREFERENCES_NAME, ""));
-//        }
-
-
-
         flFragmentContainer = (FrameLayout)findViewById(R.id.flFragmentContainer);
 
         fragmentManager = getSupportFragmentManager();
 
-        if(savedInstanceState == null) {
-            fMmain = new MainFragment();
-            android.support.v4.app.FragmentTransaction fTrans = fragmentManager.beginTransaction();
-            fTrans.replace(R.id.flFragmentContainer, fMmain, "MainFragment");
+        /**
+         * Check fragmentManager state, if no fragments in backstack = add new, else popBackStack
+         */
+        if(fragmentManager.getBackStackEntryCount() == 0) {
+            fMain = new MainFragment();
+            fTrans = fragmentManager.beginTransaction();
+            fTrans.replace(R.id.flFragmentContainer, fMain, "MainFragment");
             fTrans.commit();
+            menuActive = false;
         }
-        else {
+
+        else fragmentManager.popBackStack();
+
+        if(savedInstanceState != null)
+            menuActive = savedInstanceState.getBoolean("InMenu");
+
+        if(menuActive) {
+            Log.v("MyLOG", "menuActive, launch MenuFragment");
             fMenu = new MenuFragment();
             menuType = savedInstanceState.getInt("SavedMenu");
+            menuActive = true;
             Bundle bundle = new Bundle();
             bundle.putInt("Type", menuType);
+            bundle.putBoolean("InMenu", menuActive);
             fMenu.setArguments(bundle);
-            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-            ft.commit();
+            fTrans = fragmentManager.beginTransaction();
+            fTrans.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+            fTrans.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+            fTrans.addToBackStack(null);
+            fTrans.commit();
         }
     }
 
@@ -96,13 +105,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         fMenu = new MenuFragment();
         Bundle bundle = new Bundle();
         menuType = 1;
+        menuActive = true;
         bundle.putInt("Type", menuType);
         fMenu.setArguments(bundle);
-        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-        ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-        ft.addToBackStack(null);
-        ft.commit();
+        fTrans = fragmentManager.beginTransaction();
+        fTrans.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        fTrans.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+        fTrans.addToBackStack(null);
+        fTrans.commit();
     }
 
     @Override
@@ -110,13 +120,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         fMenu = new MenuFragment();
         Bundle bundle = new Bundle();
         menuType = 2;
+        menuActive = true;
         bundle.putInt("Type", menuType);
         fMenu.setArguments(bundle);
-        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-        ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-        ft.addToBackStack(null);
-        ft.commit();
+        fTrans = fragmentManager.beginTransaction();
+        fTrans.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        fTrans.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+        fTrans.addToBackStack(null);
+        fTrans.commit();
     }
 
     @Override
@@ -124,13 +135,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         fMenu = new MenuFragment();
         Bundle bundle = new Bundle();
         menuType = 3;
+        menuActive = true;
         bundle.putInt("Type", menuType);
         fMenu.setArguments(bundle);
-        android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-        ft.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
-        ft.addToBackStack(null);
-        ft.commit();
+        fTrans = fragmentManager.beginTransaction();
+        fTrans.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+        fTrans.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
+        fTrans.addToBackStack(null);
+        fTrans.commit();
     }
 
     /**
@@ -199,6 +211,12 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     void showInfoDialog(int title, int content) {
         InfoDialogFragment newFragment = InfoDialogFragment.newInstance(title, content);
         newFragment.show(getSupportFragmentManager(), "dialog");
+    }
+
+    @Override
+    public void onBackPressed() {
+        menuActive = false;
+            super.onBackPressed();
     }
 
     public void doPositiveClick() {
