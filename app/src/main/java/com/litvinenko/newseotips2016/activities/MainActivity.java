@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     private android.support.v4.app.Fragment fMenu;
     private android.support.v4.app.FragmentManager fragmentManager;
 
-    public static final String APP_PREFERENCES = "mysettings";
-    public static final String APP_PREFERENCES_INFO = "SHOW_INFO";
-    private boolean infoStatus;
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         if(menuActive) {
@@ -64,11 +60,14 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
             menuActive = false;
         }
 
-        else fragmentManager.popBackStack();
-
-        if(savedInstanceState != null)
+        else {
             menuActive = savedInstanceState.getBoolean("InMenu");
+            fragmentManager.popBackStack();
+        }
 
+        /**
+         * If menu was active - replace MainFragment with MenuFragment
+         */
         if(menuActive) {
             Log.v("MyLOG", "menuActive, launch MenuFragment");
             fMenu = new MenuFragment();
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
             bundle.putBoolean("InMenu", menuActive);
             fMenu.setArguments(bundle);
             fTrans = fragmentManager.beginTransaction();
-            fTrans.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+            fTrans.setCustomAnimations(0, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
             fTrans.replace(R.id.flFragmentContainer, fMenu, "MenuFragment");
             fTrans.addToBackStack(null);
             fTrans.commit();

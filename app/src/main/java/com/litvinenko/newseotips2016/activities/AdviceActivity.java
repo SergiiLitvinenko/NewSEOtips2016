@@ -212,6 +212,7 @@ public class AdviceActivity extends AppCompatActivity {
             advicesDataList.add(new Advice(adviceCategory, adviceNumber, adviceName, adviceContent,
                     adviceExample, adviceImage));
         }
+        c.close();
         db.close();
     }
 
