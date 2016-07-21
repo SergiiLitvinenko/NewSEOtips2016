@@ -19,6 +19,7 @@ import com.litvinenko.newseotips2016.R;
 import com.litvinenko.newseotips2016.database.DBContract;
 import com.litvinenko.newseotips2016.database.MyDatabaseAssetHelper;
 import com.litvinenko.newseotips2016.fragments.AdviceFragment;
+import com.litvinenko.newseotips2016.fragments.InfoDialogFragment;
 
 import java.util.LinkedList;
 
@@ -158,27 +159,21 @@ public class AdviceActivity extends AppCompatActivity {
                         filteredAdvicesList[currentPosition].getName());
                 intent.putExtra(Intent.EXTRA_TEXT, "");
                 try {
-                    startActivity(Intent.createChooser(intent, getString(R.string.alert_dialog_add_advice)));
+                    startActivity(Intent.createChooser(intent, getString(R.string.alert_dialog_report_title)));
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(AdviceActivity.this, R.string.alert_dialog_no_email_client, Toast.LENGTH_SHORT).show();
                 }
                 break;
 
-            case R.id.miInfo:
-                AlertDialog alertDialog = new AlertDialog.Builder(AdviceActivity.this).create();
-                alertDialog.setTitle(getString(R.string.alert_dialog_info_title));
-                alertDialog.setMessage(getString(R.string.alert_dialog_info_content));
-                alertDialog.setIcon(android.R.drawable.ic_dialog_info);
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
+            case R.id.miAppInfo:
+                InfoDialogFragment newFragment = InfoDialogFragment.newInstance(R.string.alert_dialog_info_title,
+                        R.string.alert_dialog_info_content);
+                newFragment.show(getSupportFragmentManager(), "dialog");
+                break;
         }
         return true;
     }
+
 
     /**
      * Initialize and get data from Database

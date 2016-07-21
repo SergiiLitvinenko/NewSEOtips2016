@@ -8,7 +8,7 @@
     <string name="menu_item_info">Информация о приложении</string>
     <string name="main_app_name">SEO советы</string>
     <string name="share_advice">Поделиться советом</string>
-    <string name="alert_dialog_add_advice">Отправить нам свой совет</string>
+    <string name="alert_dialog_add_advice">Добавить свой совет</string>
     <string name="alert_dialog_no_email_client">Не установлены e-mail клиенты.</string>
     <string name="alert_dialog_menu_info_title">Информация о пунктах меню</string>
     <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\n
@@ -18,6 +18,8 @@
     <string name="alert_dialog_info_title">Информация о приложении</string>
     <string name="alert_dialog_dev_email">falconapps@gmail.com</string>
     <string name="alert_dialog_dev_subject">Новый совет</string>
+    <string name="alert_dialog_report_title">"Сообщить об ошибке "</string>
+    <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
     <string name="alert_dialog_button_ok">OK</string>
     <string name="alert_dialog_button_not_show">Не показывать снова</string>
     <string name="menu_fragment_no_data">Данные не доступны</string>
@@ -28,6 +30,5 @@
     <string name="info_optim_content">Всё что делается в пределах сайта для улучшения его ранжирования относится к внутренней оптимизации. Как правило это улучшение качества контента и юзабилити</string>
     <string name="info_tools_title">Бесплатные инструменты</string>
     <string name="info_tools_content">Тут собраны самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
-    <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
     <string name="menu_item_report">Сообщить об ошибке</string>
 </resources>

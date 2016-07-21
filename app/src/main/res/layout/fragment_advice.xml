@@ -39,13 +39,21 @@
                 android:paddingBottom="5dp"
                 android:layout_below="@+id/tvAdvice"/>
 
-            <ImageView
-                android:id="@+id/ivAdviceImage"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:layout_below="@+id/tvAdviceExample"
-                android:layout_alignParentBottom="true"/>
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:id="@+id/ivAdviceImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
