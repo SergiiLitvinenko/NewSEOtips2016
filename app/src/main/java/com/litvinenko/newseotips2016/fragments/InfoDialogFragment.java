@@ -32,8 +32,8 @@ public class InfoDialogFragment extends DialogFragment {
                 .setMessage(message)
                 .setPositiveButton(R.string.alert_dialog_button_ok,
                         new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                ((MainActivity) getActivity()).doPositiveClick();
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
                             }
                         }
                 )

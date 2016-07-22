@@ -76,7 +76,6 @@ public class MainFragment extends android.support.v4.app.Fragment implements Vie
         }
 
         return true;
-
     }
 
     public interface IOnMainSeoClickListener {
