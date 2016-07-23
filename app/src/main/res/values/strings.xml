@@ -16,12 +16,11 @@
         Бесплатные инструменты - самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
     <string name="alert_dialog_info_content">Программа Seo советы создана разработчиком FalconApps в 2016 году. Связаться с разработчиком можно с помощью формы добавления нового совета или письмом на электронную почту falconapps@gmail.com</string>
     <string name="alert_dialog_info_title">Информация о приложении</string>
-    <string name="alert_dialog_dev_email">falconapps@gmail.com</string>
     <string name="alert_dialog_dev_subject">Новый совет</string>
+    <string name="alert_dialog_dev_email">falconapps@gmail.com</string>
     <string name="alert_dialog_report_title">"Сообщить об ошибке "</string>
     <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
     <string name="alert_dialog_button_ok">OK</string>
-    <string name="alert_dialog_button_not_show">Не показывать снова</string>
     <string name="menu_fragment_no_data">Данные не доступны</string>
     <string name="main_tools_button">Бесплатные инструменты</string>
     <string name="info_seo_title">Внешняя оптимизация</string>
@@ -31,4 +30,6 @@
     <string name="info_tools_title">Бесплатные инструменты</string>
     <string name="info_tools_content">Тут собраны самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
     <string name="menu_item_report">Сообщить об ошибке</string>
+    <string name="advice_tab_strip_name">"Совет "</string>
+    <string name="tools_tab_strip_name">"Инструменты "</string>
 </resources>

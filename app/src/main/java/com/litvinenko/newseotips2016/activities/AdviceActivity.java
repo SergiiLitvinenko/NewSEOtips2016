@@ -103,7 +103,12 @@ public class AdviceActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Совет " + (position + 1);
+            String pageTitle;
+            if (type == 3)
+                pageTitle = getString(R.string.tools_tab_strip_name) + (position + 1);
+            else
+                pageTitle = getString(R.string.advice_tab_strip_name) + (position + 1);
+            return pageTitle;
         }
 
         @Override
