@@ -50,9 +50,9 @@ public class AdviceFragment extends Fragment {
     private void setAdvice(Advice advice) {
         tvAdviceName.setText(advice.getName());
         if(advice.getContent() != null)
-            tvAdviceContent.setText(Html.fromHtml(advice.getContent()));
+            tvAdviceContent.setText(String.valueOf(advice.getContent()));
         if(advice.getExample() != null)
-            tvAdviceExample.setText(Html.fromHtml(advice.getExample()));
+            tvAdviceExample.setText(String.valueOf(advice.getExample()));
         if(advice.getImage() != null)
         ivAdviceImage.setImageResource(getResourceID(advice.getImage(), "drawable", getContext()));
 

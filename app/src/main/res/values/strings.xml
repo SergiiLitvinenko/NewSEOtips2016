@@ -1,19 +1,20 @@
 <resources>
-    <string name="app_name">NewSEOtips2016</string>
+    <string name="app_name">SEO советы</string>
     <string name="list_element">List Element</string>
     <string name="main_seo_button">Внешняя оптимизация</string>
     <string name="main_optim_button">Внутренняя оптимизация</string>
+    <string name="main_tools_button">Полезные инструменты</string>
     <string name="menu_item_add_advice">Добавить совет</string>
     <string name="menu_item_share">Поделиться</string>
     <string name="menu_item_info">Информация о приложении</string>
     <string name="main_app_name">SEO советы</string>
     <string name="share_advice">Поделиться советом</string>
+    <string name="advice_tab_strip_name">"Совет "</string>
+    <string name="tools_tab_strip_name">"Инструменты "</string>
     <string name="alert_dialog_add_advice">Добавить свой совет</string>
     <string name="alert_dialog_no_email_client">Не установлены e-mail клиенты.</string>
     <string name="alert_dialog_menu_info_title">Информация о пунктах меню</string>
-    <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\n
-        Внутренняя оптимизация - всё что делается в пределах сайта для улучшения его ранжирования. Как правило это улучшение качества контента и юзабилити, исправление технических ошибок\n\n
-        Бесплатные инструменты - самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
+    <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\nВнутренняя оптимизация - всё что делается в пределах сайта для улучшения его ранжирования. Как правило это улучшение качества контента и юзабилити, исправление технических ошибок\n\nБесплатные инструменты - самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
     <string name="alert_dialog_info_content">Программа Seo советы создана разработчиком FalconApps в 2016 году. Связаться с разработчиком можно с помощью формы добавления нового совета или письмом на электронную почту falconapps@gmail.com</string>
     <string name="alert_dialog_info_title">Информация о приложении</string>
     <string name="alert_dialog_dev_subject">Новый совет</string>
@@ -22,7 +23,6 @@
     <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
     <string name="alert_dialog_button_ok">OK</string>
     <string name="menu_fragment_no_data">Данные не доступны</string>
-    <string name="main_tools_button">Бесплатные инструменты</string>
     <string name="info_seo_title">Внешняя оптимизация</string>
     <string name="info_seo_content">Это классическая \"СЕО\" оптимизация с ссылочным продвижением, а так же все меры по оптимизации сайта выполняемые за его пределами</string>
     <string name="info_optim_title">Внутренняя оптимизация</string>
@@ -30,6 +30,4 @@
     <string name="info_tools_title">Бесплатные инструменты</string>
     <string name="info_tools_content">Тут собраны самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
     <string name="menu_item_report">Сообщить об ошибке</string>
-    <string name="advice_tab_strip_name">"Совет "</string>
-    <string name="tools_tab_strip_name">"Инструменты "</string>
 </resources>
