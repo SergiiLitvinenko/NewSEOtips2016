@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SEO советы</string>
+    <string name="app_name">SEO советы для новичков</string>
     <string name="list_element">List Element</string>
     <string name="main_seo_button">Внешняя оптимизация</string>
     <string name="main_optim_button">Внутренняя оптимизация</string>
@@ -14,7 +14,7 @@
     <string name="alert_dialog_add_advice">Добавить свой совет</string>
     <string name="alert_dialog_no_email_client">Не установлены e-mail клиенты.</string>
     <string name="alert_dialog_menu_info_title">Информация о пунктах меню</string>
-    <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\nВнутренняя оптимизация - всё что делается в пределах сайта для улучшения его ранжирования. Как правило это улучшение качества контента и юзабилити, исправление технических ошибок\n\nБесплатные инструменты - самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
+    <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\nВнутренняя оптимизация - всё что делается в пределах сайта для улучшения его ранжирования. Как правило это улучшение качества контента и юзабилити, исправление технических ошибок\n\nПолезные инструменты - краткое описание must mave инструментов для любого вебмастера и сео оптимизатора</string>
     <string name="alert_dialog_info_content">Программа Seo советы создана разработчиком FalconApps в 2016 году. Связаться с разработчиком можно с помощью формы добавления нового совета или письмом на электронную почту falconapps@gmail.com</string>
     <string name="alert_dialog_info_title">Информация о приложении</string>
     <string name="alert_dialog_dev_subject">Новый совет</string>
@@ -28,6 +28,6 @@
     <string name="info_optim_title">Внутренняя оптимизация</string>
     <string name="info_optim_content">Всё что делается в пределах сайта для улучшения его ранжирования относится к внутренней оптимизации. Как правило это улучшение качества контента и юзабилити</string>
     <string name="info_tools_title">Бесплатные инструменты</string>
-    <string name="info_tools_content">Тут собраны самые эффективные бесплатные инструменты, которые значительно облегчат процесс продвижения сайта</string>
+    <string name="info_tools_content">Краткое описание must mave инструментов для любого вебмастера и сео оптимизатора</string>
     <string name="menu_item_report">Сообщить об ошибке</string>
 </resources>
