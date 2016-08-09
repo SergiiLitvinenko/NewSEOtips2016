@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "884573948541",
+    "project_id": "seo-tips-for-beginners"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884573948541:android:ac3e8152bf8bbd2f",
+        "android_client_info": {
+          "package_name": "com.litvinenko.newseotips2016"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiknCid9xvhQcPWOGpdqDeBUrzOZs_uf0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-81950676-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

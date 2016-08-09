@@ -7,13 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.litvinenko.newseotips2016.R;
 
 public class MainFragment extends android.support.v4.app.Fragment implements View.OnClickListener, View.OnLongClickListener {
     private Button btnSeo, btnOptim, btnTools;
 
     private IOnMainSeoClickListener seoListener;
+
+    AdView mAdView;
 
     @Nullable
     @Override
@@ -31,6 +38,21 @@ public class MainFragment extends android.support.v4.app.Fragment implements Vie
         btnOptim.setOnLongClickListener(this);
         btnTools.setOnLongClickListener(this);
 
+//        MobileAds.initialize(getActivity().getApplicationContext(), "ca-app-pub-6834005874422488~8947206651");
+//
+//        AdView mAdView = (AdView) v.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
+
+        mAdView = new AdView(getActivity());
+        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdSize(AdSize.BANNER);
+        LinearLayout layout = (LinearLayout) v.findViewById(R.id.llAdmobMain);
+        layout.addView(mAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        adRequestBuilder.addTestDevice("04BE9085560FE8B1C252BDB22C5D8129");
+        mAdView.loadAd(adRequest);
         return v;
     }
 

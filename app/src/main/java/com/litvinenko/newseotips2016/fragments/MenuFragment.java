@@ -9,8 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.litvinenko.newseotips2016.R;
 import com.litvinenko.newseotips2016.activities.Advice;
 import com.litvinenko.newseotips2016.database.DBContract;
@@ -29,6 +34,8 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
     private LinkedList<String> filteredList = new LinkedList<>();
 
     private MyDatabaseAssetHelper dbHelper;
+
+    AdView mAdView;
 
     public int getType() {
         return type;
@@ -54,6 +61,16 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
          */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.list, filteredList);
         setListAdapter(adapter);
+
+        mAdView = new AdView(getActivity());
+        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdSize(AdSize.BANNER);
+        RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.rlAdmobMenu);
+        layout.addView(mAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        adRequestBuilder.addTestDevice("04BE9085560FE8B1C252BDB22C5D8129");
+        mAdView.loadAd(adRequest);
 
         return v;
     }

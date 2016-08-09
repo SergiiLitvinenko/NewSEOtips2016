@@ -19,6 +19,9 @@ import com.litvinenko.newseotips2016.database.MyDatabaseAssetHelper;
 import com.litvinenko.newseotips2016.fragments.AdviceFragment;
 import com.litvinenko.newseotips2016.fragments.InfoDialogFragment;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.LinkedList;
 
 public class AdviceActivity extends AppCompatActivity {
@@ -80,6 +83,8 @@ public class AdviceActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+
+
     }
 
     /**

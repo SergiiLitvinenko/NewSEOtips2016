@@ -9,14 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.litvinenko.newseotips2016.R;
 import com.litvinenko.newseotips2016.activities.Advice;
 
 public class AdviceFragment extends Fragment {
     TextView tvAdviceName, tvAdviceContent, tvAdviceExample;
     ImageView ivAdviceImage;
+
+    AdView mAdView;
 
     public static AdviceFragment newInstance(Advice advice) {
         AdviceFragment fragmentAdvice = new AdviceFragment();
@@ -40,6 +46,16 @@ public class AdviceFragment extends Fragment {
             Advice advice = getArguments().getParcelable("Advice");
             setAdvice(advice);
         }
+
+        mAdView = new AdView(getActivity());
+        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdSize(AdSize.BANNER);
+        RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.rlAdmobAdvice);
+        layout.addView(mAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        adRequestBuilder.addTestDevice("04BE9085560FE8B1C252BDB22C5D8129");
+        mAdView.loadAd(adRequest);
 
         return v;
     }

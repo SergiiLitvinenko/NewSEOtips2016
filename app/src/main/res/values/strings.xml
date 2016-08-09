@@ -30,4 +30,8 @@
     <string name="info_tools_title">Бесплатные инструменты</string>
     <string name="info_tools_content">Краткое описание must mave инструментов для любого вебмастера и сео оптимизатора</string>
     <string name="menu_item_report">Сообщить об ошибке</string>
+    <string name="banner_ad_unit_id_main">ca-app-pub-6834005874422488/7051671053</string>
+    <string name="banner_ad_unit_id_menu">ca-app-pub-6834005874422488/1423939850</string>
+    <string name="banner_ad_unit_id_advice">ca-app-pub-6834005874422488/8528404252</string>
+
 </resources>

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
 import com.litvinenko.newseotips2016.R;
 import com.litvinenko.newseotips2016.fragments.InfoDialogFragment;
 import com.litvinenko.newseotips2016.fragments.MainFragment;
@@ -83,6 +84,12 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
             fTrans.addToBackStack(null);
             fTrans.commit();
         }
+
+        /**
+         * Ads initialize
+         */
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-6834005874422488~8947206651");
+
     }
 
     /**
