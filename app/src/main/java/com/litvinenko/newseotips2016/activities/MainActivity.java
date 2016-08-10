@@ -1,6 +1,7 @@
 package com.litvinenko.newseotips2016.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -88,8 +89,17 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
         /**
          * Ads initialize
          */
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-6834005874422488~8947206651");
+        AdsInit adTask = new AdsInit();
+        adTask.execute();
+    }
 
+    class AdsInit extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            MobileAds.initialize(getApplicationContext(), "ca-app-pub-6834005874422488~8947206651");
+            return null;
+        }
     }
 
     /**
@@ -230,3 +240,4 @@ public class MainActivity extends AppCompatActivity implements MainFragment.IOnM
     }
 
 }
+
