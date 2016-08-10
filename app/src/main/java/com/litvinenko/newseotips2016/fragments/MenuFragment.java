@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -57,19 +56,20 @@ public class MenuFragment extends android.support.v4.app.ListFragment {
             addAdvices();
 
         /**
-         * Setting custom list layout
+         * Set custom list layout
          */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.list, filteredList);
         setListAdapter(adapter);
 
+        /**
+         * AdMob Banner Ads
+         */
         mAdView = new AdView(getActivity());
-        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdUnitId(getString(R.string.banner_ad_unit_id_menu));
         mAdView.setAdSize(AdSize.BANNER);
         RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.rlAdmobMenu);
         layout.addView(mAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
-        adRequestBuilder.addTestDevice("04BE9085560FE8B1C252BDB22C5D8129");
         mAdView.loadAd(adRequest);
 
         return v;

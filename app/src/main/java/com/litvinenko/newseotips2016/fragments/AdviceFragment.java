@@ -47,14 +47,15 @@ public class AdviceFragment extends Fragment {
             setAdvice(advice);
         }
 
+        /**
+         * AdMob Banner Ads
+         */
         mAdView = new AdView(getActivity());
-        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mAdView.setAdUnitId(getString(R.string.banner_ad_unit_id_advice));
         mAdView.setAdSize(AdSize.BANNER);
         RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.rlAdmobAdvice);
         layout.addView(mAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
-        adRequestBuilder.addTestDevice("04BE9085560FE8B1C252BDB22C5D8129");
         mAdView.loadAd(adRequest);
 
         return v;
