@@ -15,10 +15,10 @@
     <string name="alert_dialog_no_email_client">Не установлены e-mail клиенты.</string>
     <string name="alert_dialog_menu_info_title">Информация о пунктах меню</string>
     <string name="alert_dialog_menu_info_content">Внешняя оптимизация - классическая \"СЕО\" оптимизация с наращиванием ссылочной массы, а так же все меры по оптимизации сайта выполняемые за его пределами\n\nВнутренняя оптимизация - всё что делается в пределах сайта для улучшения его ранжирования. Как правило это улучшение качества контента и юзабилити, исправление технических ошибок\n\nПолезные инструменты - краткое описание must mave инструментов для любого вебмастера и сео оптимизатора</string>
-    <string name="alert_dialog_info_content">Программа Seo советы создана разработчиком FalconApps в 2016 году. Связаться с разработчиком можно с помощью формы добавления нового совета или письмом на электронную почту falconapps@gmail.com</string>
+    <string name="alert_dialog_info_content">Программа Seo советы создана разработчиком FalconApps в 2016 году. Связаться с разработчиком можно с помощью формы добавления нового совета или письмом на электронную почту falconappsdev@gmail.com</string>
     <string name="alert_dialog_info_title">Информация о приложении</string>
     <string name="alert_dialog_dev_subject">Новый совет</string>
-    <string name="alert_dialog_dev_email">falconapps@gmail.com</string>
+    <string name="alert_dialog_dev_email">falconappsdev@gmail.com</string>
     <string name="alert_dialog_report_title">"Сообщить об ошибке "</string>
     <string name="alert_dialog_report_subject">"Ошибка в совете "</string>
     <string name="alert_dialog_button_ok">OK</string>
