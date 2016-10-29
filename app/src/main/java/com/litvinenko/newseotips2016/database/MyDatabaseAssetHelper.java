@@ -1,6 +1,7 @@
 package com.litvinenko.newseotips2016.database;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 

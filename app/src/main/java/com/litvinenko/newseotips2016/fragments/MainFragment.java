@@ -3,6 +3,8 @@ package com.litvinenko.newseotips2016.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.os.AsyncTaskCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +43,20 @@ public class MainFragment extends android.support.v4.app.Fragment implements Vie
         /**
          * AdMob Banner Ads
          */
-        mAdView = new AdView(getActivity());
-        mAdView.setAdUnitId(getString(R.string.banner_ad_unit_id_main));
-        mAdView.setAdSize(AdSize.BANNER);
-        LinearLayout layout = (LinearLayout) v.findViewById(R.id.llAdmobMain);
-        layout.addView(mAdView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
+        //TODO: Find solution: app freezes on mAdView.loadAd(adRequest);
+
+//                mAdView = new AdView(getActivity());
+//                Log.v("MyLOG", "mAdView = new AdView");
+//                mAdView.setAdUnitId(getString(R.string.banner_ad_unit_id_main));
+//                mAdView.setAdSize(AdSize.BANNER);
+//                Log.v("MyLOG", "mAdView.setAdSize(AdSize.BANNER)");
+//                LinearLayout layout = (LinearLayout) v.findViewById(R.id.llAdmobMain);
+//                layout.addView(mAdView);
+//                Log.v("MyLOG", "layout.addView(mAdView)");
+//                AdRequest adRequest = new AdRequest.Builder().build();
+//                mAdView.loadAd(adRequest);
+
         return v;
     }
 
